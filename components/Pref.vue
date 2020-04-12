@@ -102,7 +102,7 @@ export default {
       Object.keys(_addressListHash).forEach(function (key) {
         _addressList.push(key)
       })
-      this.addressList = _addressList
+      this.addressList = _addressList.sort()
       this.pref = clinics
     }
   }
