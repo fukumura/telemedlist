@@ -1,18 +1,14 @@
 <template>
   <v-card>
     <v-card-title>
-      <v-spacer />
-      <v-text-field
+      <v-select
         v-model="searchQuery"
-        append-icon="mdi-magnify"
-        label="Search"
-        single-line
-        hide-details
+        :items="addressList"
+        label="エリア"
+        solo
       />
     </v-card-title>
-    <v-data-table v-if="!pref" item-key="name" class="elevation-1" loading loading-text="Loading... Please wait" />
     <v-data-table
-      v-else
       :headers="headers"
       :items="pref"
       :search="searchQuery"
@@ -35,6 +31,9 @@
             <td>
               {{ item.mdepart1 }} {{ item.mdepart2 }} {{ item.mdepart3 }}
             </td>
+            <td>
+              {{ item.address1 }}
+            </td>
           </tr>
         </tbody>
       </template>
@@ -43,6 +42,8 @@
 </template>
 
 <script>
+import prefs from '@/data/prefs.json'
+
 export default {
   data () {
     return {
@@ -61,11 +62,21 @@ export default {
            sortable: true,
            value: 'mdepart1'
         },
+        {
+           text: 'エリア',
+           sortable: true,
+           value: 'address1'
+        },
         { text: '', value: 'data-table-expand' }
       ],
       itemsPerPage: 50,
       pref: [],
-      prefName: ''
+      addressList: []
+    }
+  },
+  computed: {
+    icon () {
+      return 'mdi-checkbox-blank-outline'
     }
   },
   mounted () {
@@ -75,9 +86,23 @@ export default {
     async clinics () {
       const _clinics = await import(`~/data/pref/${this.$route.params.id}_clinics.json`)
       const clinics = []
+      const _addressListHash = {}
+      const prefName = prefs[Number(this.$route.params.id) - 1].name
       Object.keys(_clinics).forEach(function (key) {
+        if (!_clinics[key].address1) {
+          return
+        }
+        const _address = _clinics[key].address1
+        const address = _address.replace(prefName, '')
+        _clinics[key].address1 = address
+        _addressListHash[address] = true
         clinics.push(_clinics[key])
       })
+      const _addressList = []
+      Object.keys(_addressListHash).forEach(function (key) {
+        _addressList.push(key)
+      })
+      this.addressList = _addressList
       this.pref = clinics
     }
   }
