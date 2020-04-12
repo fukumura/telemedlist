@@ -77,15 +77,11 @@
 </template>
 <script>
 import prefs from '@/data/prefs.json'
-import totalCount from '@/data/total_count.txt'
-import updateDate from '@/data/update.txt'
 export default {
   data () {
     return {
       searchQuery: '',
       prefs,
-      totalCount,
-      updateDate,
       headers: [
         {
           text: '都道府県',
