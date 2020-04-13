@@ -5,7 +5,7 @@ data以下のjsonを読み込んでます。
 
 > オンライン診療検索 https://telemedlist.com
 
-$ yarn install
+$ yarn install  
 $ yarn dev  
 
 http://localhost:3000/
