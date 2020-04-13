@@ -9,9 +9,10 @@
       sm8
       md6
     >
-      <h1>
-        {{ prefName }}のオンライン診療
+      <h1 class="pa-2 ma-2 light-green lighten-4 title font-regular tile">
+        <span>{{ prefName }}のオンライン診療</span>
       </h1>
+      </v-h1>
       <v-card>
         <Pref />
       </v-card>

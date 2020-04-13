@@ -15,7 +15,7 @@
           color="light-green lighten-4"
           flat
         >
-          <v-toolbar-title>都道府県別導入数</v-toolbar-title>
+          <v-toolbar-title>都道府県別導入 （{{ importData.totalCount }}件） 最終更新日: {{ importData.updateDate }} </v-toolbar-title>
           <template>
             <v-spacer />
             <v-btn-toggle
@@ -77,10 +77,13 @@
 </template>
 <script>
 import prefs from '@/data/prefs.json'
+import importData from '@/data/import_data.json'
+
 export default {
   data () {
     return {
       searchQuery: '',
+      importData,
       prefs,
       headers: [
         {
