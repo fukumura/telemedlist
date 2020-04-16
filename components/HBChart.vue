@@ -6,13 +6,29 @@ export default {
   extends: HorizontalBar,
   data () {
     return {
-      prefs,
-      prefsName: [],
-      prefsCount: []
+      prefs
+    }
+  },
+  computed: {
+    sortedPref () {
+      return prefs.sort((a, b) => {
+        if (a.count > b.count) {
+          return -1
+        }
+        if (a.count < b.count) {
+          return 1
+        }
+        return 0
+      })
+    },
+    prefsName () {
+      return this.sortedPref.map(pref => pref.name)
+    },
+    prefsCount () {
+      return this.sortedPref.map(pref => pref.count)
     }
   },
   mounted () {
-    this.setData()
     this.renderChart(
       {
         labels: this.prefsName,
@@ -29,18 +45,6 @@ export default {
         maintainAspectRatio: false
       }
     )
-  },
-  methods: {
-    setData () {
-      const prefsName = []
-      const prefsCount = []
-      Object.keys(prefs).forEach(function (key) {
-        prefsName.push(prefs[key].name)
-        prefsCount.push(prefs[key].count)
-      })
-      this.prefsName = prefsName
-      this.prefsCount = prefsCount
-    }
   }
 }
 </script>
