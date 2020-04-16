@@ -116,6 +116,11 @@ export default {
           icon: 'mdi-apps',
           title: 'Home',
           to: '/'
+        },
+        {
+          icon: 'mdi-chart-gantt',
+          title: 'Chart',
+          to: '/bars'
         }
       ],
      items_down: [
