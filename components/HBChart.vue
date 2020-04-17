@@ -11,7 +11,7 @@ export default {
   },
   computed: {
     sortedPref () {
-      return prefs.sort((a, b) => {
+      return prefs.slice().sort((a, b) => {
         if (a.count > b.count) {
           return -1
         }
