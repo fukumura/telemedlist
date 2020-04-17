@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <chart-component :height="500" />
+    <chart-component :height="1000" />
   </v-container>
 </template>
 
