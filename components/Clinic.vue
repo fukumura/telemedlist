@@ -3,95 +3,37 @@
     max-width="375"
     class="mx-auto"
   >
-    <v-img
-      src="https://cdn.vuetifyjs.com/images/lists/ali.png"
-      height="300px"
-      dark
-    >
-      <v-row class="fill-height">
-        <v-card-title>
-          <v-btn dark icon>
-            <v-icon>mdi-chevron-left</v-icon>
-          </v-btn>
+    <h1 class="pa-2 ma-2 light-green lighten-4 title font-regular tile">
+      <span>{{ clinicName }}のオンライン診療</span>
+    </h1>
 
-          <v-spacer />
-
-          <v-btn dark icon class="mr-4">
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
-
-          <v-btn dark icon>
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-        </v-card-title>
-
-        <v-spacer />
-
-        <v-card-title class="white--text pl-12 pt-12">
-          <div class="display-1 pl-12 pt-12">
-            Ali Conners
-          </div>
-        </v-card-title>
-      </v-row>
-    </v-img>
+    <v-list one-line>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title>{{ clinicName }}</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
 
     <v-list two-line>
       <v-list-item @click="">
-        <v-list-item-icon>
-          <v-icon color="indigo">
-            mdi-phone
-          </v-icon>
-        </v-list-item-icon>
+        <v-list-item-action />
+        <v-list-item-content>
+          <v-list-item-title>{{ clinicAddress1}} {{ clinicAddress2 }}</v-list-item-title>
+          <v-list-item-subtitle>住所</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
 
+      <v-divider inset />
+
+      <v-list-item @click="">
+        <v-list-item-action />
         <v-list-item-content>
           <v-list-item-title>(650) 555-1234</v-list-item-title>
-          <v-list-item-subtitle>Mobile</v-list-item-subtitle>
+          <v-list-item-subtitle>電話番号</v-list-item-subtitle>
         </v-list-item-content>
-
-        <v-list-item-icon>
-          <v-icon>mdi-message-text</v-icon>
-        </v-list-item-icon>
       </v-list-item>
-
-      <v-list-item @click="">
-        <v-list-item-action />
-
-        <v-list-item-content>
-          <v-list-item-title>(323) 555-6789</v-list-item-title>
-          <v-list-item-subtitle>Work</v-list-item-subtitle>
-        </v-list-item-content>
-
-        <v-list-item-icon>
-          <v-icon>mdi-message-text</v-icon>
-        </v-list-item-icon>
-      </v-list-item>
-
       <v-divider inset />
-
-      <v-list-item @click="">
-        <v-list-item-icon>
-          <v-icon color="indigo">
-            mdi-email
-          </v-icon>
-        </v-list-item-icon>
-
-        <v-list-item-content>
-          <v-list-item-title>aliconnors@example.com</v-list-item-title>
-          <v-list-item-subtitle>Personal</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-list-item @click="">
-        <v-list-item-action />
-
-        <v-list-item-content>
-          <v-list-item-title>ali_connors@example.com</v-list-item-title>
-          <v-list-item-subtitle>Work</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider inset />
-
       <v-list-item @click="">
         <v-list-item-icon>
           <v-icon color="indigo">
@@ -107,3 +49,32 @@
     </v-list>
   </v-card>
 </template>
+<script>
+import firebase from '@/plugins/firebase'
+const db = firebase.firestore()
+export default {
+  data () {
+    return {
+      clinicName: '',
+      clinicUrl: '',
+      clinicTel: ''
+    }
+  },
+  computed: {
+  },
+  created () {
+    this.getClinic()
+  },
+  methods: {
+    async getClinic () {
+      const clinics = await db.collection('clinics')
+                     .where('id', '==', '1')
+                     .get()
+      clinics.forEach((doc) => {
+        console.log(doc.data().name)
+        this.clinicName = doc.data().name
+      })
+    }
+  }
+}
+</script>

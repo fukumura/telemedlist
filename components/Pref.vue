@@ -22,11 +22,9 @@
             class="pointer"
           >
             <td>
-              <a
-                :href="item.url"
-                target="_blank"
-              >{{ item.name }}
-              </a>
+              <nuxt-link :to="{ name: 'clinics-id', params: { id: item.url } }">
+                {{ item.name }}
+              </nuxt-link>
             </td>
             <td>
               {{ item.mdepart1 }} {{ item.mdepart2 }} {{ item.mdepart3 }}
