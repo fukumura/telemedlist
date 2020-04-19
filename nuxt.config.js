@@ -7,6 +7,7 @@ const baseOgp = process.env.BASE_OGP || '/lib/img/ogp'
 const baseDir = process.env.BASE_DIR || '/'
 
 const prefs = require('./data/prefs.json')
+const clinics = require('./data/clinics.json')
 
 export default {
   mode: 'universal',
@@ -88,6 +89,9 @@ export default {
       const routes = []
       prefs.map((item) => {
         routes.push( `/prefs/${item.id}`)
+      })
+      clincs.map((item) => {
+        routes.push( `/clinics/${item.id}`)
       })
       return routes
     }
