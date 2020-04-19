@@ -22,11 +22,9 @@
             class="pointer"
           >
             <td>
-              <a
-                :href="item.url"
-                target="_blank"
-              >{{ item.name }}
-              </a>
+              <nuxt-link :to="{ name: 'clinics-id', params: { id: item.id } }">
+                {{ item.name }}
+              </nuxt-link>
             </td>
             <td>
               {{ item.mdepart1 }} {{ item.mdepart2 }} {{ item.mdepart3 }}
@@ -84,7 +82,7 @@ export default {
   },
   methods: {
     async clinics () {
-      const _clinics = await import(`~/data/pref/${this.$route.params.id}_clinics.json`)
+      const _clinics = await import(`~/data/prefs/${this.$route.params.id}_clinics.json`)
       const clinics = []
       const _addressListHash = {}
       const prefName = prefs[Number(this.$route.params.id) - 1].name

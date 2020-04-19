@@ -7,6 +7,7 @@ const baseOgp = process.env.BASE_OGP || '/lib/img/ogp'
 const baseDir = process.env.BASE_DIR || '/'
 
 const prefs = require('./data/prefs.json')
+const clinics = require('./data/clinics.json')
 
 export default {
   mode: 'universal',
@@ -56,12 +57,12 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-      { src: '~plugins/ga.js', mode: 'client' },
-      {
-        src: '@/plugins/vue-chartjs',
-        ssr: false,
-      },
-    // { src: '~/plugins/firebase.js' } NOTE: 使ってないので。
+    { src: '~plugins/ga.js', mode: 'client' },
+    {
+      src: '@/plugins/vue-chartjs',
+      ssr: false,
+    },
+    { src: '~/plugins/firebase.js' }
   ],
   /*
   ** Nuxt.js dev-modules
@@ -88,6 +89,9 @@ export default {
       const routes = []
       prefs.map((item) => {
         routes.push( `/prefs/${item.id}`)
+      })
+      clincs.map((item) => {
+        routes.push( `/clinics/${item.id}`)
       })
       return routes
     }
