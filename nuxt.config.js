@@ -90,7 +90,7 @@ export default {
       prefs.map((item) => {
         routes.push( `/prefs/${item.id}`)
       })
-      clincs.map((item) => {
+      clinics.map((item) => {
         routes.push( `/clinics/${item.id}`)
       })
       return routes
