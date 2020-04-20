@@ -41,7 +41,7 @@
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-subtitle>電話番号</v-list-item-subtitle>
-          <v-list-item-title>{{ clinic.tel }}</v-list-item-title>
+          <v-list-item-title><a v-if="clinic.tel" :href="`tel:${clinic.tel}`">{{ clinic.tel }}</a></v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -55,7 +55,7 @@
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-subtitle>ホームページ</v-list-item-subtitle>
-          <v-list-item-title><a :href="clinic.url" target="_blank">{{ clinic.url }}</a></v-list-item-title>
+          <v-list-item-title><a :href="clinic.url" target="_blank" rel="noopener">{{ clinic.url }}</a></v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -107,7 +107,7 @@
         <v-list-item-action />
         <v-list-item-content>
           <v-list-item-subtitle>オンライン診療についての情報</v-list-item-subtitle>
-          <v-list-item-title><a :href="clinic.otherinfo" target="_blank">{{ clinic.otherinfo }}</a></v-list-item-title>
+          <v-list-item-title><a :href="clinic.otherinfo" target="_blank" rel="noopener">{{ clinic.otherinfo }}</a></v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
