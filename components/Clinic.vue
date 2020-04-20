@@ -41,7 +41,7 @@
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-subtitle>電話番号</v-list-item-subtitle>
-          <v-list-item-title>{{ clinic.tel }}</v-list-item-title>
+          <v-list-item-title><a v-if="clinic.tel" :href="`tel:${clinic.tel}`">{{ clinic.tel }}</a></v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
