@@ -61,8 +61,8 @@ export default {
     {
       src: '@/plugins/vue-chartjs',
       ssr: false,
-    },
-    { src: '~/plugins/firebase.js' }
+    }
+    // { src: '~/plugins/firebase.js' }
   ],
   /*
   ** Nuxt.js dev-modules
