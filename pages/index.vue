@@ -14,6 +14,10 @@
       </v-card>
       <br>
       <v-card>
+        <Search />
+      </v-card>
+      <br>
+      <v-card>
         <PrefsIndex />
       </v-card>
     </v-flex>
@@ -22,11 +26,13 @@
 
 <script>
 import About from '~/components/About.vue'
+import Search from '~/components/Search.vue'
 import PrefsIndex from '~/components/PrefsIndex.vue'
 
 export default {
   components: {
     About,
+    Search,
     PrefsIndex
   }
 }

@@ -57,12 +57,13 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~plugins/ga.js', mode: 'client' },
+    { src: '@/plugins/ga.js', mode: 'client' },
     {
       src: '@/plugins/vue-chartjs',
       ssr: false,
-    }
-    // { src: '~/plugins/firebase.js' }
+    },
+    { src: '@/plugins/algolia.js' }
+    // { src: '@/plugins/firebase.js' }
   ],
   /*
   ** Nuxt.js dev-modules
