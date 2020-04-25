@@ -5,18 +5,16 @@
       <v-text-field
         v-model="searchQuery"
         append-icon="mdi-magnify"
-        label="Search"
+        label="クリニックを探す"
         single-line
         hide-details
       />
     </v-card-title>
-    <v-data-table v-if="!prefs" item-key="name" class="elevation-1" loading loading-text="Loading... Please wait" />
+    <v-data-table v-if="!clinics" item-key="name" class="elevation-1" loading loading-text="Loading... Please wait" />
     <v-data-table
       v-else
       :headers="headers"
-      :items="prefs"
-      :search="searchQuery"
-      :items-per-page="itemsPerPage"
+      :items="clinics"
     >
       <template v-slot:body="{ items }">
         <tbody>
@@ -26,7 +24,7 @@
             class="pointer"
           >
             <td>
-              <nuxt-link :to="{ name: 'prefs-id', params: { id: item.id } }">
+              <nuxt-link :to="{ name: 'clinics-id', params: { id: item.id } }">
                 <v-list-item-title>{{ item.name }}</v-list-item-title>
               </nuxt-link>
             </td>
@@ -37,13 +35,14 @@
   </v-card>
 </template>
 <script>
-import prefs from '@/data/prefs.json'
+import searchClient from '@/plugins/algolia'
+const index = searchClient.initIndex('clinics')
 
 export default {
   data () {
     return {
       searchQuery: '',
-      prefs,
+      clinics: [],
       headers: [
         {
           text: '都道府県',
@@ -53,6 +52,23 @@ export default {
         }
       ],
       itemsPerPage: 50
+    }
+  },
+  watch: {
+    searchQuery () {
+      this.searchClinic()
+    }
+  },
+  async asyncData () {
+    const searchResult = await index.search({ searchQuery: '' })
+    return {
+      clinics: searchResult.hits
+    }
+  },
+  methods: {
+    async searchClinic () {
+      const searchResult = await index.search(this.searchQuery)
+      this.clinics = searchResult.hits
     }
   }
 }
