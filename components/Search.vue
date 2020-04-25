@@ -25,7 +25,7 @@
           >
             <td>
               <nuxt-link :to="{ name: 'clinics-id', params: { id: item.id } }">
-                <v-list-item-title>{{ item.name }}</v-list-item-title>
+                <v-list-item-title>{{ item.name }} / {{ item.mdepart }} / {{ item.address }}</v-list-item-title>
               </nuxt-link>
             </td>
           </tr>
@@ -45,7 +45,7 @@ export default {
       clinics: [],
       headers: [
         {
-          text: '都道府県',
+          text: 'クリニック名',
           align: 'start',
           sortable: false,
           value: 'name'
