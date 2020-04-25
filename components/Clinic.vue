@@ -7,7 +7,7 @@
       <span>{{ clinic.name }}</span>
     </h1>
     <v-list two-line>
-      <v-list-item @click="">
+      <v-list-item>
         <v-list-item-icon>
           <v-icon color="indigo">
             mdi-medical-bag
@@ -19,7 +19,7 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-list-item @click="">
+      <v-list-item>
         <v-list-item-icon>
           <v-icon color="indigo">
             mdi-map-marker
@@ -33,7 +33,7 @@
 
       <v-divider inset />
 
-      <v-list-item @click="">
+      <v-list-item>
         <v-list-item-icon>
           <v-icon color="indigo">
             mdi-phone-hangup
@@ -61,7 +61,7 @@
 
       <v-divider inset />
 
-      <v-list-item @click="">
+      <v-list-item>
         <v-list-item-action />
         <v-list-item-content>
           <v-list-item-subtitle>オンライン初診保険対応</v-list-item-subtitle>
@@ -75,7 +75,7 @@
       </v-list-item>
 
       <v-divider inset />
-      <v-list-item @click="">
+      <v-list-item>
         <v-list-item-action />
         <v-list-item-content>
           <v-list-item-subtitle>オンライン再診（保険診療）</v-list-item-subtitle>
@@ -89,7 +89,7 @@
       </v-list-item>
 
       <v-divider inset />
-      <v-list-item @click="">
+      <v-list-item>
         <v-list-item-action />
         <v-list-item-content>
           <v-list-item-subtitle>コロナオンライン相談</v-list-item-subtitle>
@@ -103,7 +103,7 @@
       </v-list-item>
 
       <v-divider inset />
-      <v-list-item @click="">
+      <v-list-item>
         <v-list-item-action />
         <v-list-item-content>
           <v-list-item-subtitle>オンライン診療についての情報</v-list-item-subtitle>
