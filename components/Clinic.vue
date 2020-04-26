@@ -147,9 +147,9 @@ export default {
       title: this.clinic.name + '(' + this.clinic.mdepart1 + ',' + this.clinic.address1 + ')のオンライン診療情報',
       meta: [
         { hid: 'og:url', name: 'og:url', content: process.env.baseUrl + '/clinics/' + this.clinic.id },
-        { hid: 'description', name: 'description', content: this.clinic.name + '(' + this.clinic.mdepart1 + ',' + this.clinic.address1 + ')のオンライン診療の初診解禁で初診・再診OKの病院・クリニックを検索できます。オンライン診療実施医療機関リストの公開データを元に日々更新しているサイトです。' },
+        { hid: 'description', name: 'description', content: this.clinic.name + '(' + this.clinic.mdepart1 + ',' + this.clinic.address1 + this.clinic.mdepart1 + this.clinic.address2 + ')のページです。telemedlist.comはオンライン診療(遠隔診療)の病院・クリニックを検索できます。' },
         { hid: 'og:title', name: 'og:title', content: this.clinic.name + '(' + this.clinic.mdepart1 + ',' + this.clinic.address1 + ')のオンライン診療情報' },
-        { hid: 'og:description', name: 'og:description', content: this.clinic.name + '(' + this.clinic.mdepart1 + ',' + this.clinic.address1 + ')のオンライン診療の初診解禁で初診・再診OKの病院・クリニックを検索できます。' }
+        { hid: 'og:description', name: 'og:description', content: this.clinic.name + '(' + this.clinic.mdepart1 + ',' + this.clinic.address1 + this.clinic.mdepart1 + this.clinic.address2 + ')のページです。' }
       ]
     }
   }
