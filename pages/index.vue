@@ -14,6 +14,10 @@
       </v-card>
       <br>
       <v-card>
+        <TotalCountBar />
+      </v-card>
+      <br>
+      <v-card>
         <Search />
       </v-card>
       <br>
@@ -25,15 +29,15 @@
 </template>
 
 <script>
-import About from '~/components/About.vue'
-import Search from '~/components/Search.vue'
-import PrefsIndex from '~/components/PrefsIndex.vue'
+import About from '@/components/About.vue'
+import TotalCountBar from '@/components/TotalCountBar.vue'
+import Search from '@/components/Search.vue'
 
 export default {
   components: {
     About,
-    Search,
-    PrefsIndex
+    TotalCountBar,
+    Search
   }
 }
 </script>

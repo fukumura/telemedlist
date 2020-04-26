@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const baseName = process.env.BASE_NAME || 'オンライン診療検索'
-const baseDesc = process.env.BASE_DISC || 'オンライン診療の初診解禁で初診・再診OKの病院・クリニックを検索できます。オンライン診療実施医療機関リストの公開データを元に日々更新しているサイトです。'
+const baseDesc = process.env.BASE_DISC || 'オンライン診療(遠隔診療)の初診解禁で初診・再診OKの病院・クリニックを検索できます。オンライン診療実施医療機関リストの公開データを元に日々更新しているサイトです。'
 const baseUrl = process.env.BASE_URL || 'http://telemedlist.com'
 const baseOgp = process.env.BASE_OGP || '/lib/img/ogp'
 const baseDir = process.env.BASE_DIR || '/'
