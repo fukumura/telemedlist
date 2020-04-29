@@ -1,8 +1,10 @@
 <template>
   <v-card
-    max-width="375"
     class="mx-auto"
   >
+    <p class="pl-2 pt-2">
+      <a href="/">Top</a>
+    </p>
     <h1 class="pa-2 ma-2 light-green lighten-4 title font-regular tile">
       <span>{{ clinic.name }}</span>
     </h1>
@@ -89,15 +91,12 @@
       </v-list-item>
 
       <v-divider inset />
-      <v-list-item>
+      <v-list-item v-if="clinic.doctors">
         <v-list-item-action />
         <v-list-item-content>
-          <v-list-item-subtitle>コロナオンライン相談</v-list-item-subtitle>
-          <v-list-item-title v-if="clinic.covid19">
-            ○
-          </v-list-item-title>
-          <v-list-item-title v-else>
-            ー
+          <v-list-item-subtitle>担当医</v-list-item-subtitle>
+          <v-list-item-title>
+            {{ clinic.doctors }}
           </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
