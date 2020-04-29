@@ -83,6 +83,7 @@ export default {
   methods: {
     async clinics () {
       const _clinics = await import(`~/data/prefs/${this.$route.params.id}_clinics.json`)
+      console.log(_clinics)
       const clinics = []
       const _addressListHash = {}
       const prefName = prefs[Number(this.$route.params.id) - 1].name

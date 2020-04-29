@@ -8,6 +8,7 @@ const baseDir = process.env.BASE_DIR || '/'
 
 const prefs = require('./data/prefs.json')
 const clinics = require('./data/clinics.json')
+const mhlwClinics = require('./data/mhlw_clinics.json')
 
 export default {
   mode: 'universal',
@@ -92,6 +93,9 @@ export default {
         routes.push( `/prefs/${item.id}`)
       })
       clinics.map((item) => {
+        routes.push( `/clinics/${item.id}`)
+      })
+      mhlwClinics.map((item) => {
         routes.push( `/clinics/${item.id}`)
       })
       return routes

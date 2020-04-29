@@ -27,7 +27,7 @@
         v-else
         :headers="headers"
         :items="clinics"
-        :itemsPerPage=50
+        :itemsPerPage="50"
       >
         <template v-slot:body="{ items }">
           <tbody>
