@@ -9,9 +9,6 @@
       sm8
       md6
     >
-      <v-card>
-        <About />
-      </v-card>
       <br>
       <v-card>
         <TotalCountBar />
@@ -22,7 +19,7 @@
       </v-card>
       <br>
       <v-card>
-        <PrefsIndex />
+        <About />
       </v-card>
     </v-flex>
   </v-layout>
