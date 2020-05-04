@@ -145,10 +145,13 @@ export default {
     return {
       title: this.clinic.name + '(' + this.clinic.mdepart1 + ',' + this.clinic.address1 + ')のオンライン診療情報',
       meta: [
-        { hid: 'og:url', name: 'og:url', content: process.env.baseUrl + '/clinics/' + this.clinic.id },
         { hid: 'description', name: 'description', content: this.clinic.name + '(' + this.clinic.mdepart1 + ',' + this.clinic.address1 + this.clinic.mdepart1 + this.clinic.address2 + ')のページです。telemedlist.comはオンライン診療(遠隔診療)の病院・クリニックを検索できます。' },
+        { hid: 'og:url', name: 'og:url', content: process.env.baseUrl + '/clinics/' + this.clinic.id },
         { hid: 'og:title', name: 'og:title', content: this.clinic.name + '(' + this.clinic.mdepart1 + ',' + this.clinic.address1 + ')のオンライン診療情報' },
         { hid: 'og:description', name: 'og:description', content: this.clinic.name + '(' + this.clinic.mdepart1 + ',' + this.clinic.address1 + this.clinic.mdepart1 + this.clinic.address2 + ')のページです。' }
+      ],
+      link: [
+        { rel: 'canonical', href: process.env.baseUrl + '/clinics/' + this.clinic.id }
       ]
     }
   }
