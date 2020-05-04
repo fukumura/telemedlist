@@ -87,6 +87,8 @@ export default {
     id: process.env.GA_TRACKING_ID
   },
   generate: {
+    workers: 4,
+    concurrency: 500,
     routes() {
       const routes = []
       prefs.map((item) => {

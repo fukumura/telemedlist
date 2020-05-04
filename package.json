@@ -8,7 +8,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "nuxt-generate -w 4",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "firebase": "^7.14.1",
     "npm": "^6.14.4",
     "nuxt": "^2.0.0",
+    "nuxt-generate-cluster": "^2.7.0",
     "vue-chartjs": "^3.5.0",
     "vue-jsonp": "^0.1.8",
     "vuexfire": "^3.2.0-alpha.0"
