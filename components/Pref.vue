@@ -24,13 +24,10 @@
             <td>
               <nuxt-link :to="{ name: 'clinics-id', params: { id: item.id } }">
                 {{ item.name }}
-              </nuxt-link>
+              </nuxt-link><br />&nbsp;{{item.address1}} {{item.address2}}
             </td>
-            <td>
+            <td class="d-none d-sm-flex pa-1">
               {{ item.mdepart1 }} {{ item.mdepart2 }} {{ item.mdepart3 }}
-            </td>
-            <td>
-              {{ item.address1 }}
             </td>
           </tr>
         </tbody>
@@ -53,17 +50,14 @@ export default {
           text: '医療機関名',
           align: 'start',
           sortable: true,
-          value: 'name'
+          value: 'name',
+          width: '70%'
         },
         {
-           text: '診療科',
-           sortable: true,
-           value: 'mdepart1'
-        },
-        {
-           text: 'エリア',
-           sortable: true,
-           value: 'address1'
+          text: '診療科',
+          sortable: true,
+          value: 'mdepart1',
+          width: '30%'
         },
         { text: '', value: 'data-table-expand' }
       ],
