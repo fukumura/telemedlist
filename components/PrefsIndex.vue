@@ -15,7 +15,10 @@
           color="light-green lighten-4"
           flat
         >
-          <v-toolbar-title>導入数 （{{ importData.totalCount }}件） 最終更新日: {{ importData.updateDate }} </v-toolbar-title>
+          <v-toolbar-title>
+            導入数 （{{ importData.totalCount.toLocaleString() }}件）
+            最終更新日: {{ importData.updateDate }}
+          </v-toolbar-title>
           <template>
             <v-spacer />
             <v-btn-toggle
