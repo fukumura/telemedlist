@@ -24,7 +24,7 @@
             <td>
               <nuxt-link :to="{ name: 'clinics-id', params: { id: item.id } }">
                 {{ item.name }}
-              </nuxt-link><br />&nbsp;{{item.address1}} {{item.address2}}
+              </nuxt-link><br>&nbsp;{{ item.address1 }} {{ item.address2 }}
             </td>
             <td class="d-none d-sm-flex pa-1">
               {{ item.mdepart1 }} {{ item.mdepart2 }} {{ item.mdepart3 }}
