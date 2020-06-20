@@ -68,11 +68,11 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
     </v-app-bar>
-    <v-content>
+    <v-main>
       <v-container>
         <nuxt />
       </v-container>
-    </v-content>
+    </v-main>
 
     <v-navigation-drawer
       v-model="rightDrawer"
