@@ -63,6 +63,7 @@ export default {
       src: '@/plugins/vue-chartjs',
       ssr: false,
     },
+    { src: "~/plugins/vue2-google-maps.js", ssr: false },
     { src: '@/plugins/algolia.js' }
     // { src: '@/plugins/firebase.js' }
   ],
@@ -83,6 +84,8 @@ export default {
     '@nuxtjs/dotenv',
     '@nuxtjs/axios'
   ],
+  axios: {
+  },
   googleAnalytics: {
     id: process.env.GA_TRACKING_ID
   },
@@ -123,6 +126,8 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      //add for vue2-google-maps
+      transpile: [/^vue2-google-maps($|\/)/]
     }
   }
 }

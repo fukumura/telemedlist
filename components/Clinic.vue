@@ -29,7 +29,9 @@
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-subtitle>住所</v-list-item-subtitle>
-          <v-list-item-title>{{ clinic.adress1 }} {{ clinic.address2 }}</v-list-item-title>
+          <v-list-item-title>{{ clinic.address1 }}{{ clinic.address2 }}</v-list-item-title>
+          <v-list-item-subtitle>地図</v-list-item-subtitle>
+          <Map :address="`${clinic.address1} ${clinic.address2}`" />
         </v-list-item-content>
       </v-list-item>
 
@@ -113,10 +115,14 @@
   </v-card>
 </template>
 <script>
+import Map from '@/components/Map.vue'
 import Meta from '~/assets/mixins/meta'
 // import firebase from '@/plugins/firebase'
 // const db = firebase.firestore()
 export default {
+  components: {
+    Map
+  },
   mixins: [Meta],
   data () {
     return {
