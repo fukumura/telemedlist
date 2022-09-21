@@ -27,7 +27,7 @@
     "vue-chartjs": "^3.5.0",
     "vue-jsonp": "^0.1.8",
     "vue2-google-maps": "^0.10.7",
-    "vuetify": "^2.3.1",
+    "vuetify": "^2.6.10",
     "vuexfire": "^3.2.0-alpha.0"
   },
   "devDependencies": {
