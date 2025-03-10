@@ -7,8 +7,8 @@
       style="width: 100%; height: 100%"
     >
       <GmapMarker
-        :key="index"
         v-for="(m, index) in markers"
+        :key="index"
         :position="m.position"
         :clickable="true"
         :draggable="true"

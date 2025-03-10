@@ -6,7 +6,7 @@
       flat
     >
       <v-toolbar-title>
-        検索ヒット数 （<b v-model="hitCount">
+        検索ヒット数 （<b>
           {{ hitCount.toLocaleString() }}
         </b>件）
       </v-toolbar-title>

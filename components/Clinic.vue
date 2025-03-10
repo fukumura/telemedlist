@@ -117,8 +117,6 @@
 <script>
 import Map from '@/components/Map.vue'
 import Meta from '~/assets/mixins/meta'
-// import firebase from '@/plugins/firebase'
-// const db = firebase.firestore()
 export default {
   components: {
     Map
@@ -137,13 +135,6 @@ export default {
   methods: {
     async getClinic () {
       const clinic = await import(`~/data/clinics/${this.$route.params.id}.json`)
-      // const clinics = await db.collection('clinics')
-      //                .where('id', '==', '1')
-      //                .get()
-      // clinics.forEach((doc) => {
-      //   console.log(doc.data().name)
-      //   this.name = doc.data().name
-      // })
       this.clinic = clinic
     }
   },
